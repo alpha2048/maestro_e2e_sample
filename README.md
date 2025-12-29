@@ -9,7 +9,12 @@ Flutterの管理は **mise** を使用します。
 
 ## Build
 
-E2Eテスト実行手順: `E2E_TESTS.md`
+E2Eテスト実行手順: `docs/e2e.md`
+
+## Docs
+
+- E2E手順: `docs/e2e.md`
+- サンプルGIF: `docs/20251229_141906.gif`
 
 ## 元記事
 
