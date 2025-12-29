@@ -1,16 +1,16 @@
 # maestro_e2e_sample
 
-A new Flutter project.
+Flutter + Maestro のE2Eサンプルです。
 
-## Getting Started
+## Toolchain
 
-This project is a starting point for a Flutter application.
+Flutterの管理は **mise** を使用します。  
+加えて、**Maestro用の Java**、**CocoaPods用の Ruby** も `mise.toml` に定義済みです。
 
-A few resources to get you started if this is your first Flutter project:
+## Build
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+E2Eテスト実行手順: `E2E_TESTS.md`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 元記事
+
+作成中
