@@ -1,0 +1,32 @@
+appId: com.example.maestroe2esample
+---
+- launchApp
+- waitForAnimationToEnd:
+    timeout: 5000
+
+- copyTextFrom:
+    id: "joke-text"
+- evalScript: ${output.firstJoke = maestro.copiedText}
+
+- tapOn:
+    id: "get-another-joke"
+
+- waitForAnimationToEnd:
+    timeout: 15000
+
+# ジョークが変わるまで最大10回リトライ（約5秒以内）
+- evalScript: ${output.iter = 0; output.secondJoke = output.firstJoke}
+- repeat:
+    while:
+      true: ${output.iter < 10 && output.secondJoke === output.firstJoke}
+    commands:
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - copyTextFrom:
+          id: "joke-text"
+      - evalScript: ${ output.secondJoke = maestro.copiedText; output.iter = output.iter + 1; }
+
+- evalScript: ${ if (output.secondJoke === output.firstJoke) { throw "Joke text did not change after retries"; } }
+
+- assertVisible:
+    id: "get-another-joke"

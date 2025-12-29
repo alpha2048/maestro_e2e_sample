@@ -1,0 +1,10 @@
+# flows:
+#   - maestro/*.yaml
+
+# executionOrder:
+#   flows:
+#     - joke_flow
+#     - notification_flow
+#   continueOnFailure: false
+
+# testOutputDir: maestro-artifacts

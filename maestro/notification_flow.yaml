@@ -1,0 +1,65 @@
+appId: com.example.maestroe2esample
+---
+- launchApp:
+    permissions:
+      notifications: allow
+- waitForAnimationToEnd:
+    timeout: 3000
+
+- tapOn:
+    id: "notification-joke"
+
+- waitForAnimationToEnd:
+    timeout: 3000
+
+- runFlow:
+    when:
+      visible: "Allow"
+    commands:
+      - tapOn: "Allow"
+- runFlow:
+    when:
+      visible: "許可"
+    commands:
+      - tapOn: "許可"
+
+# 通知をタップしてアプリに戻る（iOS/Androidで分岐）
+- runFlow:
+    when:
+      platform: ios
+    commands:
+      - pressKey: Home
+      - swipe:
+          start: 50%,1%
+          end: 50%,55%
+      - tapOn: "Joke"
+      - waitForAnimationToEnd:
+          timeout: 1000
+      - tapOn:
+          point: "15%,82%"
+      - runFlow:
+          when:
+            visible: "Open"
+          commands:
+            - tapOn: "Open"
+      - runFlow:
+          when:
+            visible: "開く"
+          commands:
+            - tapOn: "開く"
+- runFlow:
+    when:
+      platform: android
+    commands:
+      - pressKey: Home
+      - swipe:
+          start: 50%,0%
+          end: 50%,60%
+      - tapOn: "Joke"
+      - waitForAnimationToEnd:
+          timeout: 1000
+- waitForAnimationToEnd:
+    timeout: 3000
+
+- assertVisible:
+    id: "opened-notification-payload"
